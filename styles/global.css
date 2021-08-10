@@ -29,6 +29,7 @@ html {
 body {
   height: 100vh; /*view height*/
   background: var(--background);
+  display: flex;
 }
 
 body,
