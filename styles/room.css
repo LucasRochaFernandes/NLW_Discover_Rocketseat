@@ -1,0 +1,79 @@
+.content {
+  max-width: min(1120rem, 90%);
+}
+
+#room header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#room header .buttons {
+  display: flex;
+  gap: 8rem;
+}
+#room header .buttons .button {
+  padding: 13rem 16rem;
+  line-height: 0px;
+}
+
+#room header .buttons img {
+  width: 20rem;
+  height: 20rem;
+}
+
+header .buttons .button.outlined {
+  gap: 11.6rem;
+}
+
+/*Question Form*/
+
+#question-form h2 {
+  font-family: "Poppins";
+  font-size: 28rem;
+  color: var(--black);
+  font-weight: 700;
+  margin-bottom: 24rem;
+  line-height: 42rem;
+}
+
+#question-form textarea {
+  background: transparent;
+  resize: none;
+  outline: none;
+  width: 100%;
+}
+
+#question-form form {
+  border: 2rem solid var(--grey-blue);
+  padding: 16rem;
+  border-radius: 0 8rem 8rem 8rem;
+}
+
+#question-form form textarea::placeholder {
+  color: var(--grey-blue);
+}
+
+#question-form form footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#question-form form footer > div {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins";
+  color: var(--icons-details);
+  font-weight: 400;
+  font-size: 14rem;
+  line-height: 0;
+  gap: 9rem;
+}
+
+#question-form form footer button {
+  padding: 8rem 24rem;
+  line-height: 24rem;
+  height: auto;
+}
