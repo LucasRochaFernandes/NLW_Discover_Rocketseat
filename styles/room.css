@@ -49,6 +49,7 @@ header .buttons .button.outlined {
   border: 2rem solid var(--grey-blue);
   padding: 16rem;
   border-radius: 0 8rem 8rem 8rem;
+  margin-bottom: 16rem;
 }
 
 #question-form form textarea::placeholder {
