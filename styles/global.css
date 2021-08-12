@@ -21,6 +21,7 @@ html {
   --grey-dark: #4d5e77;
   --grey-blue: #a1b2cd;
   --grey-light: #e5eaf1;
+  --grey-grey: #eaecf2;
 
   /* 1rem = 16px (User Agent)*/
   font-size: 6.25%;

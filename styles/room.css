@@ -96,7 +96,7 @@ header .buttons .button.outlined {
 
 .question-wrapper .question-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16rem;
 }
 
@@ -117,6 +117,24 @@ header .buttons .button.outlined {
 }
 
 .question-wrapper .question-content .user{
-  clip-path: circle(100%);
+  clip-path: circle();
   background-color: var(--blue);
+  padding: 14rem;
+}
+
+.question-wrapper .question-content p{
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+  min-height: 52rem;
+}
+/* Question read */
+
+.question-wrapper.read{
+  background-color: var(--grey-grey);
+  
+}
+
+.question-wrapper.read .question-content .user{
+  background-color: var(--grey-blue);
 }
