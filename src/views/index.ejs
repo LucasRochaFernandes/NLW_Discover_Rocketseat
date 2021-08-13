@@ -17,30 +17,7 @@
         <div class="ball bottom"></div>
       </div>
       <main>
-        <div class="container">
-          <section>
-            <h2>Entre como participante</h2>
-            <form action="" method="GET">
-              <label class="sr-only" for="room-id">Código da sala</label>
-              <input id="room-id" type="number" placeholder="Código da sala" />
-              <button>
-                <img src="images/enter-room.svg" alt="Entrar na sala" />
-                Entrar na sala
-              </button>
-            </form>
-          </section>
-          <div class="separator">
-            <div></div>
-            <div>ou</div>
-            <div></div>
-          </div>
-          <section>
-            <h2>Crie sua própria sala de FORMS</h2>
-            <a href="create-pass.html" class="button outlined"
-              ><img src="images/users.svg" alt="Criar sala" />Criar sala</a
-            >
-          </section>
-        </div>
+        <div class="container"><%- include(`partials/${page}`) %></div>
       </main>
     </div>
   </body>
