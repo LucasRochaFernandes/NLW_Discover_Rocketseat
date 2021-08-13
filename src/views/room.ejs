@@ -16,7 +16,7 @@
       <header>
         <img src="images/logo.svg" alt="logo" />
         <div class="buttons">
-          <div class="button outlined">
+          <div class="button outlined" id="room-id" data-id="323243">
             #323243
             <img src="./images/copy.svg" alt="Copiar número da sala" />
           </div>
@@ -60,10 +60,10 @@
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="check"
+                <a href="#" class="check" data-id="2"
                   ><img src="./images/check.svg" alt="Check" />Marcar como
                   lida</a
-                ><a href="#" class="delete"
+                ><a href="#" class="delete" data-id="2"
                   ><img src="./images/trash.svg" alt="Excluir" />Excluir</a
                 >
               </div>
@@ -76,10 +76,10 @@
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="check"
+                <a href="#" class="check" data-id="3"
                   ><img src="./images/check.svg" alt="Check" />Marcar como
                   lida</a
-                ><a href="#" class="delete"
+                ><a href="#" class="delete" data-id="3"
                   ><img src="./images/trash.svg" alt="Excluir" />Excluir</a
                 >
               </div>
@@ -92,7 +92,7 @@
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="delete"
+                <a href="#" class="delete" data-id="1"
                   ><img src="./images/trash.svg" alt="Excluir" />Excluir</a
                 >
               </div>
@@ -105,18 +105,19 @@
     <!-- Modal -->
     <div class="modal-wrapper">
       <div class="modal">
-        <h2>Excluir pergunta</h2>
-        <p>Tem certeza que deseja excluir?</p>
-        <form action="">
+        <h2></h2>
+        <p></p>
+        <form action="/room/:room/:question/:action" method="POST">
           <input
             type="password"
+            id="password"
             name="password"
             aria-label="Digite sua senha"
             placeholder="Digite a senha"
           />
           <div class="buttons">
             <div class="button grey">Cancelar</div>
-            <button class="red">Sim, excluir</button>
+            <button class="red"></button>
           </div>
         </form>
       </div>
