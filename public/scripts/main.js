@@ -60,5 +60,5 @@ const questionId = event.target.dataset.id
 // identify what is
 const slug = check ? "check" : "delete"
 
-formModal.setAttribute("action", `/room/${roomId}/${questionId}/${slug}`)
+formModal.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
 }
