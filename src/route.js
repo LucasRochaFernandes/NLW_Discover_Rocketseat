@@ -1,6 +1,6 @@
 const express = require('express')
-const questionControl = require('./controllers/questionController.js')
 const route = express.Router()
+const questionControl = require('./controllers/questionController.js')
 const roomController = require('./controllers/roomController')
 
 route.get('/', (req, res)=>{
