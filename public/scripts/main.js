@@ -62,3 +62,13 @@ const slug = check ? "check" : "delete"
 
 formModal.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
 }
+
+
+
+
+
+
+
+
+
+

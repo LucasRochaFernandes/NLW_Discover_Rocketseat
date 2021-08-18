@@ -24,15 +24,26 @@ module.exports = {
         await db.run(`
         INSERT INTO rooms(id, pass) VALUES (${parseInt(roomId)}, ${pass}) 
         `)
+
+
+
        
         await db.close()
 
         res.redirect(`/room/${roomId}`)
     },
 
-    open(req, res){
-            const roomId = req.params.room
-            res.render("room", {id:roomId})
+    async open(req, res){
+        const roomId = req.params.room
+
+        const db = await dataBase()
+
+        const questionsdb  = await db.all(`select * from questions where sala = ${roomId}`)
+
+
+            res.render("room", {id:roomId, questions: questionsdb})
+
+
         
     }
 }
