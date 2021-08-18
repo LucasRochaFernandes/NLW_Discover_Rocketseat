@@ -13,7 +13,8 @@ const initDb ={
         await db.exec(`CREATE TABLE questions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             titulo TEXT,
-            read INT
+            read INT,
+            sala INT
             )`);
        
         await db.close()

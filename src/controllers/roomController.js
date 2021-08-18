@@ -1,3 +1,4 @@
+const { open } = require('sqlite')
 const dataBase = require('../db/config')
 
 
@@ -27,5 +28,11 @@ module.exports = {
         await db.close()
 
         res.redirect(`/room/${roomId}`)
+    },
+
+    open(req, res){
+            const roomId = req.params.room
+            res.render("room", {id:roomId})
+        
     }
 }
