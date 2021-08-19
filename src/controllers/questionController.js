@@ -4,15 +4,28 @@ const dataBase = require('../db/config')
 module.exports = {
 
 
-    index(req, res){
+    async index(req, res){
+        const db = await dataBase();
+        const pass = req.body.password;
         const roomId = req.params.room;
-        const questionId = req.params.question;
         const action = req.params.action;
-        const password = req.body.password;
+        const questionId = req.params.question;
 
-        console.log(`room = ${roomId} question = ${questionId}
-        action = ${action} password = ${password}`)
+
+       const verifyPass = await db.get(`select * from rooms where id = ${roomId} and pass = ${pass}`);
+
+        if(verifyPass){
+            if(action == 'delete'){
+                await db.run(`delete from questions where id = ${questionId}`)
+            }else if(action == 'check'){
+                await db.run(`update questions set read = 1 where id = ${questionId} `)
+            }
+            res.redirect(`/room/${roomId}`)
+        } else{
+            res.render("notPass", {room: roomId})  
+        }
     },
+
     async create(req, res){
         const db = await dataBase()
 

@@ -13,6 +13,8 @@ route.get('/create-pass', (req, res)=>{
     res.render("index", {page:'create-pass'})
 })
 
+route.post('/enter-room', roomController.enter)
+
 route.post('/question/:room/:question/:action', questionControl.index)
 
 route.post('/question/create/:room', questionControl.create)

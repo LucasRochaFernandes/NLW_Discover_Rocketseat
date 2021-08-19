@@ -21,7 +21,7 @@
             <img src="/images/copy.svg" alt="Copiar número da sala" />
           </div>
 
-          <a href="#" class="button">
+          <a href="/create-pass" class="button">
             <img src="/images/users-white.svg" alt="Criar uma sala" />Criar sala
           </a>
         </div>
@@ -60,30 +60,30 @@
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="check" data-id="2"
+                <a href="#" class="check" data-id="<%= element.id %>"
                   ><img src="/images/check.svg" alt="Check" />Marcar como
                   lida</a
-                ><a href="#" class="delete" data-id="2"
+                ><a href="#" class="delete" data-id="<%= element.id %>"
                   ><img src="/images/trash.svg" alt="Excluir" />Excluir</a
                 >
               </div>
             </div>
 
-            <% }) %>
-
+            <% }) %> <% questionsRead.forEach(questionRead=>{ %>
             <div class="question-wrapper read">
               <div class="question-content">
                 <div class="user"><img src="/images/user.svg" alt="" /></div>
                 <div class="question">
-                  <p>Node.js é o que?</p>
+                  <p><%= questionRead.titulo%></p>
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="delete" data-id="1"
+                <a href="#" class="delete" data-id="<%= questionsRead.id %>"
                   ><img src="/images/trash.svg" alt="Excluir" />Excluir</a
                 >
               </div>
             </div>
+            <% }) %>
           </div>
         </section>
       </main>

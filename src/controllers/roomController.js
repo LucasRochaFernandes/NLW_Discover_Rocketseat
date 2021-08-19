@@ -3,47 +3,58 @@ const dataBase = require('../db/config')
 
 
 module.exports = {
-    async create(req, res){
+    async create(req, res) {
         const db = await dataBase()
         const pass = req.body.password
         let roomIdAlreadyExists = false
-        let roomId= '';
+        let roomId = '';
 
-        while(!roomIdAlreadyExists){
-            for(let i = 0; i<6; i++){
+        while (!roomIdAlreadyExists) {
+            for (let i = 0; i < 6; i++) {
                 roomId += Math.floor(Math.random() * 10).toString()
             }
 
-            const  roomsCreated = await db.all(`SELECT id FROM rooms`)
+            const roomsCreated = await db.all(`SELECT id FROM rooms`)
 
-            if(!roomsCreated.some(roomMeet => roomMeet === parseInt(roomId))){
+            if (!roomsCreated.some(roomMeet => roomMeet === parseInt(roomId))) {
                 roomIdAlreadyExists = true
             }
         }
-      
+
         await db.run(`
         INSERT INTO rooms(id, pass) VALUES (${parseInt(roomId)}, ${pass}) 
         `)
 
 
 
-       
+
         await db.close()
 
         res.redirect(`/room/${roomId}`)
     },
 
-    async open(req, res){
+    async open(req, res) {
         const roomId = req.params.room
 
         const db = await dataBase()
 
-        const questionsdb  = await db.all(`select * from questions where sala = ${roomId}`)
+        const questionsdb = await db.all(`select * from questions where sala = ${roomId} and read = 0`)
+        const questionsdbRead = await db.all(`select * from questions where sala = ${roomId} and read = 1`)
 
+        res.render("room", { id: roomId, questions: questionsdb, questionsRead: questionsdbRead })
 
-            res.render("room", {id:roomId, questions: questionsdb})
+    },
 
+    async enter(req,res){
+        const db = await dataBase()
+        const roomId = req.body.roomId
 
-        
+        const verifyId = await db.get(`select id from rooms where id = ${roomId}`)
+
+        if(verifyId){
+            res.redirect(`/room/${roomId}`)
+        }else{
+            res.redirect("/")
+        }
     }
 }
