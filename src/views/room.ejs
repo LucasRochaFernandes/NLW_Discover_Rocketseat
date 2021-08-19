@@ -37,6 +37,8 @@
               rows="10"
               placeholder="O que você quer perguntar?"
               aria-label="O que você quer perguntar?"
+              autofocus
+              required
             ></textarea>
             <footer>
               <div>
@@ -61,10 +63,17 @@
               </div>
               <div class="actions">
                 <a href="#" class="check" data-id="<%= element.id %>"
-                  ><img src="/images/check.svg" alt="Check" />Marcar como
-                  lida</a
+                  ><img
+                    src="/images/check.svg"
+                    alt="Check"
+                    data-id="<%= element.id %>"
+                  />Marcar como lida</a
                 ><a href="#" class="delete" data-id="<%= element.id %>"
-                  ><img src="/images/trash.svg" alt="Excluir" />Excluir</a
+                  ><img
+                    src="/images/trash.svg"
+                    alt="Excluir"
+                    data-id="<%= element.id %>"
+                  />Excluir</a
                 >
               </div>
             </div>
@@ -78,8 +87,12 @@
                 </div>
               </div>
               <div class="actions">
-                <a href="#" class="delete" data-id="<%= questionsRead.id %>"
-                  ><img src="/images/trash.svg" alt="Excluir" />Excluir</a
+                <a href="#" class="delete" data-id="<%= questionRead.id %>"
+                  ><img
+                    src="/images/trash.svg"
+                    alt="Excluir"
+                    data-id="<%= questionsRead.id %>"
+                  />Excluir</a
                 >
               </div>
             </div>

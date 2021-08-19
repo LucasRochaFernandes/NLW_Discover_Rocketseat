@@ -41,8 +41,9 @@ module.exports = {
         const questionsdb = await db.all(`select * from questions where sala = ${roomId} and read = 0`)
         const questionsdbRead = await db.all(`select * from questions where sala = ${roomId} and read = 1`)
 
-        res.render("room", { id: roomId, questions: questionsdb, questionsRead: questionsdbRead })
-
+        await db.close()
+        await res.render("room", { id: roomId, questions: questionsdb, questionsRead: questionsdbRead })
+        
     },
 
     async enter(req,res){
@@ -50,6 +51,8 @@ module.exports = {
         const roomId = req.body.roomId
 
         const verifyId = await db.get(`select id from rooms where id = ${roomId}`)
+
+        await db.close()
 
         if(verifyId){
             res.redirect(`/room/${roomId}`)

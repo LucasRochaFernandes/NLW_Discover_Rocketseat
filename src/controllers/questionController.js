@@ -12,16 +12,18 @@ module.exports = {
         const questionId = req.params.question;
 
 
-       const verifyPass = await db.get(`select * from rooms where id = ${roomId} and pass = ${pass}`);
+       const verifyPass = await db.get(`select * from rooms where id = ${roomId}`);
 
-        if(verifyPass){
+        if(verifyPass.pass == pass){
             if(action == 'delete'){
                 await db.run(`delete from questions where id = ${questionId}`)
             }else if(action == 'check'){
                 await db.run(`update questions set read = 1 where id = ${questionId} `)
             }
+            await db.close()
             res.redirect(`/room/${roomId}`)
         } else{
+            await db.close()
             res.render("notPass", {room: roomId})  
         }
     },

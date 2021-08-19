@@ -25,7 +25,7 @@ checkButton.forEach((button)=>{
         modalButton.innerHTML = "Sim, marcar"
         modalButton.classList.remove('red')
 
-        handleForm(event, true)
+         handleForm(event, true)
         // Open modal 
         modal.open()
     })
@@ -50,23 +50,17 @@ deleteButton.forEach(button=>{
 })})
 
 
-function handleForm(event, check){
+ function handleForm(event, check){
 
     // Catch the modal form 
 const formModal= document.querySelector(".modal form")
 const roomId = document.querySelector("#room-id").dataset.id
-const questionId = event.target.dataset.id
-
+const questionId = event.target.dataset.id;
 // identify what is
 const slug = check ? "check" : "delete"
 
 formModal.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
 }
-
-
-
-
-
 
 
 

@@ -2,11 +2,28 @@
   <h2>Entre como participante</h2>
   <form action="/enter-room" method="POST">
     <label class="sr-only" for="roomId">Código da sala</label>
+    <script>
+      function onlynumber(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+        //var regex = /^[0-9.,]+$/;
+        var regex = /^[0-9.]+$/;
+        if (!regex.test(key)) {
+          theEvent.returnValue = false;
+          if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+      }
+    </script>
     <input
       id="roomId"
       name="roomId"
-      type="number"
+      type="text"
       placeholder="Código da sala"
+      maxlength="6"
+      onkeypress="return onlynumber();"
+      autofocus
+      required
     />
     <button>
       <img src="/images/enter-room.svg" alt="Entrar na sala" />
