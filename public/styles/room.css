@@ -112,17 +112,17 @@ header .buttons .button.outlined {
   align-items: center;
 }
 
-.question-wrapper .actions > a >img{
+.question-wrapper .actions > a > img {
   margin-right: 8rem;
 }
 
-.question-wrapper .question-content .user{
+.question-wrapper .question-content .user {
   clip-path: circle();
   background-color: var(--blue);
   padding: 14rem;
 }
 
-.question-wrapper .question-content p{
+.question-wrapper .question-content p {
   word-break: break-word;
   display: flex;
   align-items: center;
@@ -130,11 +130,32 @@ header .buttons .button.outlined {
 }
 /* Question read */
 
-.question-wrapper.read{
+.question-wrapper.read {
   background-color: var(--grey-grey);
-  
 }
 
-.question-wrapper.read .question-content .user{
+.question-wrapper.read .question-content .user {
   background-color: var(--grey-blue);
+}
+
+/*** No Questions   **/
+.no-questions {
+  text-align: center;
+  margin-top: 52rem;
+}
+.no-questions img {
+  max-width: 100%;
+  margin-bottom: 12rem;
+}
+.no-questions p {
+  font-family: "Poppins", sans-serif;
+  font-size: 18rem;
+  font-weight: 600;
+}
+.no-questions p + p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14rem;
+  font-weight: 400;
+  margin-top: 13rem;
+  line-height: 19rem;
 }

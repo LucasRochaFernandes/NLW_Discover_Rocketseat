@@ -24,10 +24,6 @@ module.exports = {
         await db.run(`
         INSERT INTO rooms(id, pass) VALUES (${parseInt(roomId)}, ${pass}) 
         `)
-
-
-
-
         await db.close()
 
         res.redirect(`/room/${roomId}`)
@@ -41,8 +37,14 @@ module.exports = {
         const questionsdb = await db.all(`select * from questions where sala = ${roomId} and read = 0`)
         const questionsdbRead = await db.all(`select * from questions where sala = ${roomId} and read = 1`)
 
+        let isQuestions = true;
+
+        if(questionsdb.length === 0 && questionsdbRead.length === 0){
+            isQuestions = false
+        }
+
         await db.close()
-        await res.render("room", { id: roomId, questions: questionsdb, questionsRead: questionsdbRead })
+        await res.render("room", { id: roomId, questions: questionsdb, questionsRead: questionsdbRead, isQuestionsND: isQuestions})
         
     },
 

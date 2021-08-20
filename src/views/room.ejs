@@ -18,7 +18,11 @@
         <div class="buttons">
           <div class="button outlined" id="room-id" data-id="<%=id%>">
             #<%= id %>
-            <img src="/images/copy.svg" alt="Copiar número da sala" />
+            <img
+              src="/images/copy.svg"
+              alt="Copiar número da sala"
+              id="room-id"
+            />
           </div>
 
           <a href="/create-pass" class="button">
@@ -53,6 +57,12 @@
         <section>
           <h2 class="sr-only">Perguntas da comunidade</h2>
           <div class="questions">
+            <% if (!isQuestionsND){ %>
+            <!--  -->
+            <%- include("partials/noquestions")%>
+            <!--  -->
+            <% } %>
+            <!--  -->
             <% questions.forEach(element=>{ %>
             <div class="question-wrapper">
               <div class="question-content">

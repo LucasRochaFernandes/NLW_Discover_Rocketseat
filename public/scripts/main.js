@@ -63,6 +63,10 @@ formModal.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
 }
 
 
+        async ()=>{
+        const idCopy = document.querySelector("#room-id")
+        await navigator.clipboard.writeText(idCopy);
+        console.log("Copy")
+        }
 
-
-
+        
